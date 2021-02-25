@@ -22,10 +22,10 @@
 
 Spring Boot アプリケーションをビルドし、コンテナ化して ACR にプッシュします。
 
-1. Pipelines の Pipelines を開きます。
+1. Pipelines を開きます。
 2. "New pipeline" をクリックします。
 3. "Where is your code?" と表示される画面で "Azure Repos Git" を選択します。
-4. "Select a repository" と表示される画面で "frpntapp" を選択します。
+4. "Select a repository" と表示される画面で "frontapp" を選択します。
 5. "Configure your pipeline" と表示される画面で "Starter pipeline" を選択します。
 展開先の ACR に対して適切なアクセス権を持っているユーザーの場合は、"Docker" を選択することで、ACR へ展開する YAML のテンプレートを生成することができます。
 6. テンプレートの YAML ファイルが生成されます。この YAML ファイルは既定ではリポジトリのルート ディレクトリ配下に azure-pipelines.yml という名前で保存されます。
