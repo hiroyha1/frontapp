@@ -1,0 +1,33 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'net.linguica.maven-settings' version '0.5'
+}
+
+group = 'com.contoso.samples'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven {
+		url System.getenv("ARTIFACTS_REPOSITORY_URL") != null ? System.getenv("ARTIFACTS_REPOSITORY_URL") : artifactsRepositoryUrl
+		name System.getenv("ARTIFACTS_FEED_NAME") != null ? System.getenv("ARTIFACTS_FEED_NAME") : artifactsFeedName
+		authentication {
+			basic(BasicAuthentication)
+		}
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'com.contoso.samples:echo:0.0.1-SNAPSHOT'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
